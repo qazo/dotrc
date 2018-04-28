@@ -3,5 +3,5 @@
 
 for file in zshrc zprofile tmux.conf; do
 	echo "${file}"
-	echo cp {,"${HOME}"/.}"${file}"
+	cp {,"${HOME}"/.}"${file}"
 done
