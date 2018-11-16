@@ -113,6 +113,11 @@ precmd() {
 	vcs_info
 }
 
+function mktouch() {
+	mkdir "$(dirname ${1})";
+	touch ${1};
+}
+
 function tailog() {
 	if [[ $UID != 0 ]]; then
 		sudo tail -F ~logs/messages
