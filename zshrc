@@ -94,6 +94,8 @@ fi
 # directoies for quick cd
 hash -d logs=/var/log
 hash -d cblt=/mnt/cobalt-ss
+hash -d win-c=/mnt/c
+hash -d win-d=/mnt/d
 #hash -d wine=/media/wine/win32
 #hash -d slackbuilds=/media/pkgs/_slackbuilds
 
@@ -160,4 +162,18 @@ function pushnd() {
 function viman() {
 	vim -c "Man $1 $2 | silent only"
 }
+
+function command_not_found_handler() {
+	if [ -x /usr/lib/command-not-found ]; then
+		/usr/lib/command-not-found -- "$1"
+		return $?
+	elif [ -x /usr/share/command-not-found/command-not-found ]; then
+		/usr/share/command-not-found/command-not-found -- "$1"
+		return $?
+	else
+		printf "%s command not found\n" "$1" >&2
+		return 127
+	fi
+}
+
 compdef _man viman
