@@ -5,10 +5,12 @@ if [ -x "$(which luarocks)" ]; then
 fi
 
 if [ -z "$SSH_AGENT_PID" ]; then
-	eval $(ssh-agent)
+	echo "starting ssh-agent"
+	eval $(ssh-agent |grep SSH_)
 fi
 
 
+export LS_OPTIONS=--color
 export BSPWM_SOCKET="$HOME/tmp/bspwm-socket"
 export EDITOR=vim
 export GOPATH="$HOME/go"
@@ -24,11 +26,12 @@ new_dirs=(
 	"/sbin"
 	"/usr/sbin"
 	"$HOME/.local/bin"
+	"$HOME/bin"
 	"$HOME/.luarocks/bin"
 	"$HOME/.nix-profile/bin"
 	"$HOME/go/bin"
 	"$HOME/opt/VSCode-linux-x64/bin"
-	"$HOME/opt/dmd2/bin"
+	"$HOME/opt/go/bin"
 	"$HOME/opt/dotnet-sdk"
 	"$HOME/opt/nvim-linux64/bin"
 	"$HOME/opt/zig-linux-x86_64"
