@@ -109,6 +109,8 @@ compdef _gnu_generic htop
 compdef _gnu_generic createuser dropuser createdb dropdb initdb psql
 compdef _gnu_generic ffcast
 compdef _gnu_generic rg
+compdef _gnu_generic mydumper
+compdef _gnu_generic myloader
 
 # functions
 precmd() {
