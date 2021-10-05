@@ -34,7 +34,7 @@ new_dirs=(
 	"$HOME/opt/go/bin"
 	"$HOME/opt/dotnet-sdk"
 	"$HOME/opt/nvim-linux64/bin"
-	"$HOME/opt/zig-linux-x86_64"
+	"$HOME/opt/zig"
 	"$HOME/opt/platform-tools"
 	"$HOME/opt/omnisharp.http-linux/bin"
 	"$HOME/usr/bin"
