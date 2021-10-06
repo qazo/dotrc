@@ -26,6 +26,7 @@ new_dirs=(
 	"/sbin"
 	"/usr/sbin"
 	"$HOME/.local/bin"
+	"$HOME/.dotnet/tools"
 	"$HOME/bin"
 	"$HOME/.luarocks/bin"
 	"$HOME/.nix-profile/bin"
