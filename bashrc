@@ -27,7 +27,7 @@ alias ssh-add='/c/Windows/System32/OpenSSH/ssh-add.exe'
 alias ssh-keygen='/c/Windows/System32/OpenSSH/ssh-keygen.exe'
 alias scp='/c/Windows/System32/OpenSSH/scp.exe'
 
-export PS1='\e[33m\u\e[0m:\e[34m\W\e[0m$(__git_ps1)\$ '
+export PS1='\e[32m\u\e[0m:\e[34m\W\e[0m$(__git_ps1)\$ '
 export PROMPT_DIRTRIM=2
 export HISTCONTROL=ignorespace:erasedups
 
