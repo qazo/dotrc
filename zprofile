@@ -27,6 +27,7 @@ new_dirs=(
 	"/usr/sbin"
 	"$HOME/.local/bin"
 	"$HOME/.dotnet/tools"
+	"$HOME/.gem/ruby/2.7.0/bin"
 	"$HOME/bin"
 	"$HOME/.luarocks/bin"
 	"$HOME/.nix-profile/bin"
@@ -36,8 +37,8 @@ new_dirs=(
 	"$HOME/opt/dotnet-sdk"
 	"$HOME/opt/nvim-linux64/bin"
 	"$HOME/opt/zig"
+	"$HOME/opt/helix"
 	"$HOME/opt/platform-tools"
-	"$HOME/opt/omnisharp.http-linux/bin"
 	"$HOME/usr/bin"
 	"$HOME/usr/games/numptyphysics/usr/bin"
 )
