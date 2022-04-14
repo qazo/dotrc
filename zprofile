@@ -35,7 +35,7 @@ new_dirs=(
 	"$HOME/opt/VSCode-linux-x64/bin"
 	"$HOME/opt/go/bin"
 	"$HOME/opt/dotnet-sdk"
-	"$HOME/opt/nvim-linux64/bin"
+	"$HOME/opt/nvim/bin"
 	"$HOME/opt/zig"
 	"$HOME/opt/helix"
 	"$HOME/opt/platform-tools"
