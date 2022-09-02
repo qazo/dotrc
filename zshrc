@@ -96,6 +96,7 @@ hash -d logs=/var/log
 hash -d cblt=/mnt/cobalt-ss
 hash -d win-c=/mnt/c
 hash -d win-d=/mnt/d
+hash -d win-home=/mnt/c/Users/kwezi
 #hash -d wine=/media/wine/win32
 #hash -d slackbuilds=/media/pkgs/_slackbuilds
 
