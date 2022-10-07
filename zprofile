@@ -1,18 +1,20 @@
 # vim: ft=zsh
 
 if [ -x "$(which luarocks)" ]; then
+	echo "• luarocks"
 	eval $(luarocks path)
 fi
 
 if [ -z "$SSH_AGENT_PID" ]; then
-	echo "starting ssh-agent"
+	echo "• ssh-agent"
 	eval $(ssh-agent |grep SSH_)
+	trap 'test -n "$SSH_AUTH_SOCK" && eval `/usr/bin/ssh-agent -k`' 0
 fi
 
 
 export LS_OPTIONS=--color
 export BSPWM_SOCKET="$HOME/tmp/bspwm-socket"
-export EDITOR=vim
+export EDITOR=nvim
 export GOPATH="$HOME/go"
 export GREP_COLORS="ms=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 export LESS=' -R'
@@ -40,6 +42,8 @@ new_dirs=(
 	"$HOME/opt/helix"
 	"$HOME/opt/platform-tools"
 	"$HOME/usr/bin"
+	"$HOME/opt/zls/bin"
+	"$HOME/opt/omnisharp"
 	"$HOME/usr/games/numptyphysics/usr/bin"
 )
 
