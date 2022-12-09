@@ -110,8 +110,8 @@ compdef _gnu_generic htop
 compdef _gnu_generic createuser dropuser createdb dropdb initdb psql
 compdef _gnu_generic ffcast
 compdef _gnu_generic rg
-compdef _gnu_generic mydumper
-compdef _gnu_generic myloader
+compdef _gnu_generic myloader mydumper
+compdef _gnu_generic sqlcmd
 
 # functions
 precmd() {
@@ -180,3 +180,5 @@ function command_not_found_handler() {
 }
 
 compdef _man viman
+
+if [ -e /home/qazo/.nix-profile/etc/profile.d/nix.sh ]; then . /home/qazo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
