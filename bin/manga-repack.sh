@@ -16,7 +16,7 @@ image_opts="-strip"
 image_opts="${image_opts} -quality ${image_qlty}"
 image_opts="${image_opts} -resize ${image_size}"
 image_regex='.+\.\(png\|jpg\|jpeg\)$'
-delete_src="${delete_src:-'N'}"
+delete_src="${delete_src:-N}"
 echo "mogrify opts: ${image_opts}"
 
 function cprint() {
@@ -108,12 +108,12 @@ find_archive | while read -r -d '' archive; do
 	done
 
 	cprint "zipping ${destname}"
-	mkdir '../done'
+	mkdir -p '../done'
 	zip -qrm "../done/${destname}" ./*
 	# 7z.exe a -tzip  -mx0 -sdel "../${destname}" ./*
 	cd "${cwd}"
 	rm -rf "${temp_dir}"
-	if [ ${delete_src} != 'N' ] || [ ${delete_src} != 'n' ]; then
+	if [ "${delete_src}" == 'Y' ] || [ "${delete_src}" == 'y' ]; then
 		rm "${archive}"
 	fi
 done
