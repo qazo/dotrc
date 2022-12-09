@@ -22,7 +22,12 @@ install_bin_files() {
 	fi
 
 	for file in ./bin/*; do
-		cp "${file}" "${destdir}"
+		destfile="${HOME}/bin/$(basename $file)"
+			if [ -f "${destfile}" ] || [ -L "${destfile}" ];  then
+				echo "${destfile} already exists. removing."
+				rm "${destfile}";
+			fi
+		ln -s "${file}" "${destfile}"
 	done
 }
 
