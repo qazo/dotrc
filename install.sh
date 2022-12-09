@@ -21,7 +21,7 @@ install_bin_files() {
 		mkdir -p "${destdir}"
 	fi
 
-	for file in ./bin/*; do
+	for file in "${PWD}/bin/"*; do
 		destfile="${HOME}/bin/$(basename $file)"
 			if [ -f "${destfile}" ] || [ -L "${destfile}" ];  then
 				echo "${destfile} already exists. removing."
