@@ -16,6 +16,7 @@ image_opts="-strip"
 image_opts="${image_opts} -quality ${image_qlty}"
 image_opts="${image_opts} -resize ${image_size}"
 image_regex='.+\.\(png\|jpg\|jpeg\)$'
+delete_src="${delete_src:-'N'}"
 echo "mogrify opts: ${image_opts}"
 
 function cprint() {
@@ -75,7 +76,7 @@ find_archive | while read -r -d '' archive; do
 	temp_dir="${archive%.*}" # strip extention
 	destname=$(basename "${temp_dir}").cbz
 	cprint -cyan ${archive}
-	if [ -f "${destname}" ]; then
+	if [ -f "./done/${destname}" ]; then
 		cprint -orange "${archive} already complete. Skipping"
 		continue
 	fi
@@ -107,11 +108,14 @@ find_archive | while read -r -d '' archive; do
 	done
 
 	cprint "zipping ${destname}"
-	zip -qrm "../${destname}" ./*
+	mkdir '../done'
+	zip -qrm "../done/${destname}" ./*
 	# 7z.exe a -tzip  -mx0 -sdel "../${destname}" ./*
 	cd "${cwd}"
 	rm -rf "${temp_dir}"
-	rm "${archive}"
+	if [ ${delete_src} != 'N' ] || [ ${delete_src} != 'n' ]; then
+		rm "${archive}"
+	fi
 done
 
 echo "Done!"
