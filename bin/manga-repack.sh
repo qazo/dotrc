@@ -73,7 +73,7 @@ find_archive | while read -r -d '' archive; do
 	archive=$(echo $archive | sed 's/^\.\///')
 
 	temp_dir="${archive%.*}" # strip extention
-	destname=new-$(basename "${temp_dir}").zip
+	destname=$(basename "${temp_dir}").cbz
 	cprint -cyan ${archive}
 	if [ -f "${destname}" ]; then
 		cprint -orange "${archive} already complete. Skipping"
