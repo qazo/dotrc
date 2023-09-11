@@ -35,7 +35,7 @@ new_dirs=(
 	"$HOME/.luarocks/bin"
 	"$HOME/.nix-profile/bin"
 	"$HOME/go/bin"
-	"$HOME/opt/VSCode-linux-x64/bin"
+	"$HOME/opt/vs-code/bin"
 	"$HOME/opt/go/bin"
 	"$HOME/opt/dotnet-sdk"
 	"$HOME/opt/nvim/bin"
