@@ -29,6 +29,7 @@ new_dirs=(
 	"/usr/sbin"
 	"$HOME/.local/bin"
 	"$HOME/.dotnet/tools"
+	"$HOME/.cargo/bin"
 	"$HOME/.gem/ruby/2.7.0/bin"
 	"$HOME/bin"
 	"$HOME/.luarocks/bin"
