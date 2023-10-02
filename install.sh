@@ -17,9 +17,7 @@ install_home_files() {
 
 install_bin_files() {
 	destdir="${HOME}/bin"
-	if [ ! -d "${destdir}" ]; then
-		mkdir -p "${destdir}"
-	fi
+	mkdir -p "${destdir}"
 
 	for file in "${PWD}/bin/"*; do
 		destfile="${HOME}/bin/$(basename $file)"
