@@ -101,7 +101,7 @@ hash -d win-home=/mnt/c/Users/kwezi
 #hash -d slackbuilds=/media/pkgs/_slackbuilds
 
 # compdef
-compdef _gnu_generic mpv
+# compdef _gnu_generic mpv
 compdef _gnu_generic encfs
 compdef _gnu_generic aria2c
 compdef _gnu_generic ifstat
@@ -181,4 +181,6 @@ function command_not_found_handler() {
 
 compdef _man viman
 
+local PLUGIN_DIR=/usr/share/zsh/plugins
+[ -f ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh] && source ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ -e /home/qazo/.nix-profile/etc/profile.d/nix.sh ]; then . /home/qazo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
