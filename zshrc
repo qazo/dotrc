@@ -182,5 +182,5 @@ function command_not_found_handler() {
 compdef _man viman
 
 local PLUGIN_DIR=/usr/share/zsh/plugins
-[ -f ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh] && source ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ -e /home/qazo/.nix-profile/etc/profile.d/nix.sh ]; then . /home/qazo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
