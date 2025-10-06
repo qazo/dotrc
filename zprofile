@@ -39,6 +39,7 @@ new_dirs=(
 	"$HOME/opt/android-sdk/platform-tools"
 	"$HOME/opt/flutter/bin"
 	"$HOME/opt/nvim/bin"
+	"$HOME/opt/node/bin"
 	"$HOME/opt/zig"
 	"$HOME/opt/helix"
 	"$HOME/opt/zls/bin"
