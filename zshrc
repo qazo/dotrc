@@ -19,7 +19,7 @@ else
 	else
 		PROMPT='%F{%(?.blue.red)}%~%f%B:%b '
 	fi
-	RPROMPT='$vcs_info_msg_0_%(?.. %F{red}%?%f)'
+	RPROMPT='$GIT_PROMPT%(?.. %F{red}%?%f)'
 	PS2="%B:%b "
 fi
 
@@ -115,7 +115,7 @@ compdef _gnu_generic sqlcmd
 
 # functions
 precmd() {
-	vcs_info
+	GIT_PROMPT="$(gitprompt-rs zsh)"
 }
 
 function mktouch() {

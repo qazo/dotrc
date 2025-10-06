@@ -13,6 +13,7 @@ fi
 
 
 export LS_OPTIONS=--color
+export ANDROID_HOME="/home/qazo/opt/android-sdk"
 export BSPWM_SOCKET="$HOME/tmp/bspwm-socket"
 export EDITOR=nvim
 export GOPATH="$HOME/go"
@@ -20,18 +21,15 @@ export GREP_COLORS="ms=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 export LESS=' -R'
 export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
 export PGPASSFILE="$HOME/.config/postgres/pgpass"
-export WINEARCH="win32"
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 new_dirs=(
-	"/sbin"
-	"/usr/sbin"
+	"$HOME/bin"
+	"$HOME/usr/bin"
 	"$HOME/.local/bin"
 	"$HOME/.dotnet/tools"
 	"$HOME/.cargo/bin"
-	"$HOME/.gem/ruby/2.7.0/bin"
-	"$HOME/bin"
 	"$HOME/.luarocks/bin"
 	"$HOME/.nix-profile/bin"
 	"$HOME/go/bin"
@@ -43,8 +41,6 @@ new_dirs=(
 	"$HOME/opt/nvim/bin"
 	"$HOME/opt/zig"
 	"$HOME/opt/helix"
-	"$HOME/opt/platform-tools"
-	"$HOME/usr/bin"
 	"$HOME/opt/zls/bin"
 	"$HOME/opt/omnisharp"
 	"$HOME/usr/games/numptyphysics/usr/bin"
