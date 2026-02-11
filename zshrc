@@ -84,21 +84,11 @@ autoload -Uz run-help
 alias help='run-help'
 
 
-if [[ $UID != 0 ]] ; then
-	alias upgradepkg='sudo /sbin/upgradepkg'
-	alias installpkg='sudo /sbin/installpkg'
-	alias removepkg='sudo /sbin/removepkg'
-fi
-
-
 # directoies for quick cd
 hash -d logs=/var/log
 hash -d cblt=/mnt/cobalt-ss
 hash -d win-c=/mnt/c
 hash -d win-d=/mnt/d
-hash -d win-home=/mnt/c/Users/kwezi
-#hash -d wine=/media/wine/win32
-#hash -d slackbuilds=/media/pkgs/_slackbuilds
 
 # compdef
 # compdef _gnu_generic mpv

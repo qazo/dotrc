@@ -2,72 +2,67 @@
 
 if [ -x "$(which luarocks)" ]; then
 	echo "• luarocks"
-	eval $(luarocks path)
+	eval "$(luarocks path)"
 fi
 
 if [ -z "$SSH_AGENT_PID" ]; then
 	echo "• ssh-agent"
-	eval $(ssh-agent |grep SSH_)
-	trap 'test -n "$SSH_AUTH_SOCK" && eval `/usr/bin/ssh-agent -k`' 0
+	eval "$(ssh-agent |grep SSH_)"
+	trap 'test -n "$SSH_AUTH_SOCK" && eval "$(/usr/bin/ssh-agent -k)"' 0
 fi
 
 
-export LS_OPTIONS=--color
-export ANDROID_HOME="/home/qazo/opt/android-sdk"
+export ANDROID_HOME="$HOME/opt/android-sdk"
 export BSPWM_SOCKET="$HOME/tmp/bspwm-socket"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export EDITOR=nvim
 export GOPATH="$HOME/go"
 export GREP_COLORS="ms=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 export LESS=' -R'
 export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
+export LS_OPTIONS=--color
 export PGPASSFILE="$HOME/.config/postgres/pgpass"
 export XDG_CONFIG_HOME="$HOME/.config"
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+typeset -U path manpath
 
 new_dirs=(
-	"$HOME/bin"
-	"$HOME/usr/bin"
-	"$HOME/.local/bin"
-	"$HOME/.dotnet/tools"
 	"$HOME/.cargo/bin"
+	"$HOME/.dotnet/tools"
+	"$HOME/.local/bin"
 	"$HOME/.luarocks/bin"
 	"$HOME/.nix-profile/bin"
+	"$HOME/bin"
 	"$HOME/go/bin"
-	"$HOME/opt/vs-code/bin"
-	"$HOME/opt/go/bin"
-	"$HOME/opt/dotnet-sdk"
 	"$HOME/opt/android-sdk/platform-tools"
+	"$HOME/opt/dotnet-sdk"
 	"$HOME/opt/flutter/bin"
-	"$HOME/opt/nvim/bin"
-	"$HOME/opt/node/bin"
-	"$HOME/opt/zig"
+	"$HOME/opt/go/bin"
 	"$HOME/opt/helix"
-	"$HOME/opt/zls/bin"
+	"$HOME/opt/node/bin"
+	"$HOME/opt/nvim/bin"
 	"$HOME/opt/omnisharp"
-	"$HOME/usr/games/numptyphysics/usr/bin"
+	"$HOME/opt/vscode/bin"
+	"$HOME/opt/zig"
+	"$HOME/opt/zls/bin"
+	"$HOME/opt/numptyphysics/usr/bin"
 )
-
-tmp_dirs=${PATH//:/\\n}
-for dir in "${new_dirs[@]}" ; do
-	if [[ -d $dir  && -z $(echo $tmp_dirs | grep -x $dir) ]]; then
-		PATH+=:$dir
-	fi
+for dir in "${new_dirs[@]}"; do
+	[[ -d "$dir" ]] && path+=("$dir")
 done
-export PATH
 
 new_dirs=(
 	"$HOME/.local/man"
 	"$HOME/.nix-profile/share/man"
+	"$HOME/opt/nvim/share/man"
 	"$HOME/usr/man"
 	"$HOME/usr/share/man"
-	"$HOME/opt/nvim-linux64/share/man"
 )
-tmp_dirs=${MANPATH//:/\\n}
-for dir in "${new_dirs[@]}" ; do
-	if [[ -d $dir && -z $(echo $tmp_dirs | grep -x $dir) ]]; then
-		MANPATH+=:$dir
-	fi
+for dir in "${new_dirs[@]}"; do
+	[[ -d "$dir" ]] && manpath+=("$dir")
 done
-export MANPATH
-unset new_dirs tmp_dirs dir
+
+export path
+export manpath
+unset new_dirs dir
 
