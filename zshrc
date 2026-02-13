@@ -153,7 +153,7 @@ function pushnd() {
 }
 
 function viman() {
-	vim -c "Man $1 $2 | silent only"
+	nvim -c "Man $1 $2 | silent only"
 }
 
 function command_not_found_handler() {
@@ -173,4 +173,4 @@ compdef _man viman
 
 local PLUGIN_DIR=/usr/share/zsh/plugins
 [ -f ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh
-if [ -e /home/qazo/.nix-profile/etc/profile.d/nix.sh ]; then . /home/qazo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+[ -f ${HOME}/.nix-profile/etc/profile.d/nix.sh ] && source ${HOME}/.nix-profile/etc/profile.d/nix.sh
