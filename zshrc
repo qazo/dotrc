@@ -171,6 +171,14 @@ function command_not_found_handler() {
 
 compdef _man viman
 
-local PLUGIN_DIR=/usr/share/zsh/plugins
-[ -f ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ${PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh
-[ -f ${HOME}/.nix-profile/etc/profile.d/nix.sh ] && source ${HOME}/.nix-profile/etc/profile.d/nix.sh
+function __try_source() {
+	if [ -f "$1" ]; then
+		source "$1"
+	fi
+}
+
+__try_source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+__try_source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+__try_source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+__try_source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+__try_source "${HOME}/.nix-profile/etc/profile.d/nix.sh" 
