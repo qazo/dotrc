@@ -4,6 +4,10 @@ autoload -Uz compinit && compinit
 autoload -Uz vcs_info
 
 
+if [ -x "$(which uv)" ]; then
+	eval "$(uv generate-shell-completion zsh)"
+fi
+
 # history
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
